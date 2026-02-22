@@ -80,6 +80,12 @@ int do_a_round(int *a, int *b, int*c, int*d, const wchar_t* board[8][9], const w
 
 	move_player1_piece(&c, &d, a, b, board);
 
+	int row1 = c, coll1 = d;
+
+	wprintf(L"ROw: %d Coll: %d", row1, coll1);
+
+	player1_kinged(board, row1, coll1);
+
 	print_board(board);
 
 	player_num = 2;
@@ -91,6 +97,8 @@ int do_a_round(int *a, int *b, int*c, int*d, const wchar_t* board[8][9], const w
 	get_peice_cords(&a, &b, player_num, board, board_blank);
 
 	move_player2_piece(&c, &d, a, b, board);
+
+	player2_kinged(board, *c, *d);
 
 	print_board(board);
 
@@ -127,7 +135,7 @@ int check_for_loss(int player_num, const wchar_t* board[8][9]) {
 // Author : Patrick Tolentino
 // Function : Gets the bender ability after kinging a piece
 
-int get_bender_abilities(int kinged_piece)
+int get_bender_abilities(void)
 {
 	int option = 0;
 	int result = 0;
@@ -151,7 +159,7 @@ int get_bender_abilities(int kinged_piece)
 		{
 			wprintf(L"Invalid input type! Please enter numbers only!\n");
 
-			while (getchar() != '\n');
+			while (getwchar() != L'\n');
 		}
 
 		else if (option < 1 || option > 4)
@@ -317,3 +325,73 @@ int main_menu(void)
 	return 0;
 }
 
+void player1_kinged(const wchar_t* board[8][9], int row, int column)
+{
+	wprintf(L"This is row %d", row);
+	if (wcscmp(board[row][column], L"⚪") == 0 && row == 0)
+	{
+		int kinged_piece = 0, orginal_piece = 0;
+
+		wprintf(L"Piece has been kinged!");
+		kinged_piece = get_bender_abilities();
+
+
+		if (kinged_piece == 1)
+		{
+			board[row][column] = L"W1";
+		}
+
+		if (kinged_piece == 2)
+		{
+			board[row][column] = L"E1";
+		}
+
+		if (kinged_piece == 3)
+		{
+			board[row][column] = L"F1";
+		}
+
+		if (kinged_piece == 4)
+		{
+			board[row][column] = L"A1";
+		}
+
+
+	}
+}
+
+
+void player2_kinged(const wchar_t* board[8][9], int row, int column)
+{
+	wprintf(L"This is row %d", row);
+	if (wcscmp(board[row][column], L"⚫") == 0 && row == 0)
+	{
+		int kinged_piece = 0, orginal_piece = 0;
+
+		wprintf(L"Piece has been kinged!");
+		kinged_piece = get_bender_abilities();
+
+
+		if (kinged_piece == 1)
+		{
+			board[row][column] = L"W2";
+		}
+
+		if (kinged_piece == 2)
+		{
+			board[row][column] = L"E2";
+		}
+
+		if (kinged_piece == 3)
+		{
+			board[row][column] = L"F2";
+		}
+
+		if (kinged_piece == 4)
+		{
+			board[row][column] = L"A2";
+		}
+
+
+	}
+}

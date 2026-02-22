@@ -4,7 +4,8 @@
 #include <math.h>
 #include <fcntl.h>				
 #include <io.h>
-#include <locale.h>				//Last three help with the Unicode somehow
+#include <locale.h>	//Last three help with the Unicode somehow
+#include <wchar.h>
 
 // wind/air 💨
 // rock 🗿
@@ -29,6 +30,9 @@ void move_player1_piece(int* row, int* column, int original_row, int original_co
 void move_player2_piece(int* row, int* column, int original_row, int original_column, const wchar_t* board[8][9]);
 int do_a_round(int* a, int* b, int* c, int* d, const wchar_t* board[8][9], const wchar_t* board_blank[8][9]);
 int check_for_loss(int player_num, const wchar_t* board[8][9]);
+void player1_kinged(const wchar_t* board[8][9], int row, int column);
+void player2_kinged(const wchar_t* board[8][9], int row, int column);
+int get_bender_abilities(void);
 
 
 //Example pointer function
