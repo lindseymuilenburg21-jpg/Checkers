@@ -395,3 +395,213 @@ void player2_kinged(const wchar_t* board[8][9], int row, int column)
 
 	}
 }
+
+
+void activate_ability(int* player, int* row, int* column, const wchar_t* board [8][9], const wchar_t* blank[8][9], const wchar_t* L"emoji") {
+	//const  wchar_t* da_emoji = L"emoji";
+	//int* da_row = *row, da_column = *column;
+	//const  wchar_t* da_board = board;
+
+	if (*L"emoji" = "w") {
+		wprintf(L"Where do you want to go? Go to the opposite color as you currently are:  "); 
+		wscanf(L"%ls %ls", row, column);
+
+		if ((*row > 7 || *row < 0) || (*column > 7 || *column < 0)){
+
+				wprintf(L"you can't go there silly! Input new cords: ");
+				wscanf(L"%ls %ls", row, column);
+		
+		} if (*row > *row + 2 || *column > *column + 2) {
+
+			wprintf(L"You can only move from one point from your current position. \n enter new cords");
+			wscanf(L"%lf %lf", row, column);
+		}
+		else {
+			if (player = 1) {
+				board[*row][*column] = L"⚪";
+
+				if (player = 2) {
+					board[*row][*column] = L"⚫";
+				}
+
+			}
+		}
+	}
+	else if (*L"emoji" = "e") {
+
+		
+		board[*row - 1][*column - 1] = L"b";
+		board[*row - 1][*column + 1] = L"b";
+		board[*row + 1][*column - 1] = L"b";
+		board[*row + 1][*column + 1] = L"b";
+
+		board[*row - 1][*column] = L"b";
+		board[*row][*column - 1] = L"b";
+		board[*row + 1][*column] = L"b";
+		board[*row][*column + 1] = L"b";
+
+	}
+	else if (*L"emoji" = "f") {
+	
+
+			board[*row - 1][*column - 1] = blank[*row-1][*column -1];
+			board[*row - 1][*column + 1] = blank[*row - 1][*column + 1];
+			board[*row + 1][*column - 1] = blank[*row + 1][*column - 1];
+			board[*row + 1][*column + 1] = blank[*row + 1][*column + 1];
+
+			board[*row - 1][*column] = blank[*row - 1][*column];
+			board[*row][*column - 1] = blank[*row][*column - 1];
+			board[*row + 1][*column] = blank[*row + 1][*column];
+			board[*row][*column + 1] = blank[*row][*column + 1];
+
+		
+
+
+	}
+	else if (*L"emoji" = "w") {
+		
+		if (player = 1) 
+			if ((board[*row + 2][*column + 2]) && (board[*row - 2][*column - 2]) && (board[*row + 2][*column - 2]) && (board[*row - 2][*column + 2])) {
+
+				if (player = 1) {
+					if (board[*row - 1][*column - 1] != L"⬜" || L"⬛") {
+						board[*row - 2][*column - 2] = L"⚫";
+					}
+					if (board[*row - 1][*column + 1] != L"⬜" || L"⬛") {
+						board[*row - 2][*column + 2] = L"⚫";
+					}
+					if (board[*row + 1][*column + 1] != L"⬜" || L"⬛") {
+						board[*row + 2][*column + 2] = L"⚫";
+
+					}
+					if (board[*row + 1][*column - 1] != L"⬜" || L"⬛") {
+						board[*row + 2][*column - 2] = L"⚫";
+
+					}
+				}
+
+				if (player = 2) {
+					if (board[*row - 1][*column - 1] != L"⬜" || L"⬛") {
+						board[*row - 2][*column - 2] = L"⚪";
+					}
+					if (board[*row - 1][*column + 1] != L"⬜" || L"⬛") {
+						board[*row - 2][*column + 2] = L"⚪";
+					}
+					if (board[*row + 1][*column + 1] != L"⬜" || L"⬛") {
+						board[*row + 2][*column + 2] = L"⚪";
+
+					}
+					if (board[*row + 1][*column - 1] != L"⬜" || L"⬛") {
+						board[*row + 2][*column - 2] = L"⚪";
+
+					}
+				}
+
+			}
+		
+	}
+
+
+}
+
+/*
+Author: Lyd Thompson
+Purpose: kill the other player
+*/
+
+void kill(int* row, int* column, int* player, const wchar_t* board[8][9], const wchar_t* blank[8][9], const wchar_t* L"emoji"){
+	
+	if (player = 1) {
+		if (board[*row - 2][*column - 2] && board[*row - 1][*column - 1] == L"⚪") {
+			board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
+		}
+		if (board[*row + 2][*column - 2] && board[*row + 1][*column - 1] == L"⚪") {
+			board[*row + 1][*column - 1] = blank[*row +1][*column - 1];
+		}
+		if (board[*row - 2][*column + 2] && board[*row - 1][*column + 1] == L"⚪") {
+			board[*row - 1][*column + 1] = blank[*row - 1][*column + 1];
+		}
+		if (board[*row + 2][*column + 2] && board[*row + 1][*column + 1] == L"⚪") {
+			board[*row + 1][*column + 1] = blank[*row + 1][*column + 1];
+		}
+	}
+
+	if (player = 2) {
+
+		if (board[*row - 2][*column - 2] && board[*row - 1][*column - 1] == L"⚫") {
+			board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
+		}
+		if (board[*row + 2][*column - 2] && board[*row + 1][*column - 1] == L"⚫") {
+			board[*row + 1][*column - 1] = blank[*row + 1][*column - 1];
+		}
+		if (board[*row - 2][*column + 2] && board[*row - 1][*column + 1] == L"⚫") {
+			board[*row - 1][*column + 1] = blank[*row - 1][*column + 1];
+		}
+		if (board[*row + 2][*column + 2] && board[*row + 1][*column + 1] == L"⚫") {
+			board[*row + 1][*column + 1] = blank[*row + 1][*column + 1];
+		}
+
+	}
+
+	if (player = 1 && L"emoji") {
+		if (board[*row - 2][*column - 2] && board[*row - 1][*column - 1] == L"⚪") {
+			board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
+		}
+		if (board[*row + 2][*column - 2] && board[*row + 1][*column - 1] == L"⚪") {
+			board[*row + 1][*column - 1] = blank[*row + 1][*column - 1];
+			board[*row + 1][*column - 1] = blank[*row + 1][*column - 1];
+		}
+		if (board[*row - 2][*column + 2] && board[*row - 1][*column + 1] == L"⚪") {
+			board[*row - 1][*column + 1] = blank[*row - 1][*column + 1];
+		}
+		if (board[*row + 2][*column + 2] && board[*row + 1][*column + 1] == L"⚪") {
+			board[*row + 1][*column + 1] = blank[*row + 1][*column + 1];
+		} 
+
+
+		if (board[*row - 2][*column] && board[*row - 1][*column] == L"⚪") {
+			board[*row - 1][*column] = blank[*row - 1][*column];
+		}
+		if (board[*row][*column - 2] && board[*row - 1][*column] == L"⚪") {
+			board[*row - 1][*column] = blank[*row - 1][*column];
+		}
+		if (board[*row + 2][*column] && board[*row + 1][*column] == L"⚪") {
+			board[*row + 1][*column] = blank[*row + 1][*column];
+		}
+		if (board[*row][*column + 2] && board[*row - 1][*column] == L"⚪") {
+			board[*row ][*column + 1] = blank[*row][*column + 1];
+		}
+
+		
+		if (player = 2 && L"emoji") {
+			if (board[*row - 2][*column - 2] && board[*row - 1][*column - 1] == L"⚫") {
+				board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
+			}
+			if (board[*row + 2][*column - 2] && board[*row + 1][*column - 1] == L"⚫") {
+				board[*row + 1][*column - 1] = blank[*row + 1][*column - 1];
+			}
+			if (board[*row - 2][*column + 2] && board[*row - 1][*column + 1] == L"⚫") {
+				board[*row - 1][*column + 1] = blank[*row - 1][*column + 1];
+			}
+			if (board[*row + 2][*column + 2] && board[*row + 1][*column + 1] == L"⚫") {
+				board[*row + 1][*column + 1] = blank[*row + 1][*column + 1];
+			}
+
+
+			if (board[*row - 2][*column] && board[*row - 1][*column] == L"⚫") {
+				board[*row - 1][*column] = blank[*row - 1][*column];
+			}
+			if (board[*row][*column - 2] && board[*row - 1][*column] == L"⚫") {
+				board[*row - 1][*column] = blank[*row - 1][*column];
+			}
+			if (board[*row + 2][*column] && board[*row + 1][*column] == L"⚫") {
+				board[*row + 1][*column] = blank[*row + 1][*column];
+			}
+			if (board[*row][*column + 2] && board[*row - 1][*column] == L"⚫") {
+				board[*row][*column + 1] = blank[*row][*column + 1];
+			}
+		
+
+	}
+}
+	
