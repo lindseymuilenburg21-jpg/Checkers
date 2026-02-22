@@ -6,6 +6,7 @@ Author: Lindsey Muilenburg
 Function: takes in current board array, and prints it, no outputs
 */
 void print_board(const wchar_t* board[8][9]) {
+	wprintf(L"Player 2\n");
 	wprintf(L"  0 1 2 3 4 5 6 7\n");
 	for (int i = 0; i < 8; i++) {
 		wprintf(L"%d ", i);
@@ -13,6 +14,7 @@ void print_board(const wchar_t* board[8][9]) {
 			wprintf(L"%ls", board[i][j]);
 		}
 	}
+	wprintf(L"Player 1");
 	wprintf(L"\n\n\n");
 }
 
@@ -195,9 +197,9 @@ int get_bender_abilities(int kinged_piece)
 }
 
 // Author : Patrick
-// Function : Moves a normal white piece
+// Function : Moves a normal white piece (Player 1)
 
-void move_normal_white_piece(int* row, int* column, int original_row, int original_column)
+void move_player1_piece(int* row, int* column, int original_row, int original_column, const wchar_t* board[8][9])
 {
 	_setmode(_fileno(stdout), _O_U16TEXT);
 	_setmode(_fileno(stdin), _O_U16TEXT);
@@ -222,7 +224,36 @@ void move_normal_white_piece(int* row, int* column, int original_row, int origin
 		}
 	} while (!((*row == (original_row - 1) && *column == (original_column - 1)) || (*row == (original_row - 1) && *column == (original_column + 1))));
 
+	board[*row][*column] = L"⚪";
 }
 
+// Author : Patrick
+// Function : Moves a normal black piece (Player 2)
 
+void move_player2_piece(int* row, int* column, int original_row, int original_column, const wchar_t* board[8][9])
+{
+	_setmode(_fileno(stdout), _O_U16TEXT);
+	_setmode(_fileno(stdin), _O_U16TEXT);
+	do
+	{
+		wprintf(L"Where would you like to move this piece (Enter row then column from values 0-7): ");
+		wscanf(L" %d %d", row, column);
+
+
+		if (*row < 0 || *row > 7 || *column < 0 || *column > 7)
+		{
+			wprintf(L"Not a spot on the board, try again!\n");
+		}
+
+		if ((*row == (original_row + 1) && *column == (original_column - 1)) || (*row == (original_row + 1) && *column == (original_column + 1)))
+		{
+			break;
+		}
+		else
+		{
+			wprintf(L"Not a valid move for this piece! Try again!\n");
+		}
+	} while (!((*row == (original_row + 1) && *column == (original_column - 1)) || (*row == (original_row + 1) && *column == (original_column + 1))));
+	board[*row][*column] = L"⚫";
+}
 

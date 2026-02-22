@@ -34,6 +34,7 @@ int main(void) {
 	};
 
 	int a = 0, b = 0; //coords of peice wanting to be moved, row and collumn
+	int c = 0, d = 0; //coords of new place peice is moving to, row and collumn
 
 	//main_menu();
 
@@ -49,8 +50,19 @@ int main(void) {
 
 	get_peice_cords(&a, &b, 1, board, board_blank);
 	
+	move_player1_piece(&c, &d, a, b, board);
+
 	print_board(board);
 
+	get_peice_cords(&a, &b, 2, board, board_blank);
+
+	move_player2_piece(&c, &d, a, b, board);
+
+	print_board(board);
+
+
+
+	
 
 
 
