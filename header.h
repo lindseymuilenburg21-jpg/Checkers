@@ -23,10 +23,12 @@ void get_two_ints(int* a, int* b);
 void set_up(const wchar_t* board[8][9]);
 void show_rules(void);
 void start_game(void);
-void main_menu(void);
+int main_menu(void);
 void get_peice_cords(int* a, int* b, int player_num, const wchar_t* board[8][9], const wchar_t* board_blank[8][9]);
 void move_player1_piece(int* row, int* column, int original_row, int original_column, const wchar_t* board[8][9]);
 void move_player2_piece(int* row, int* column, int original_row, int original_column, const wchar_t* board[8][9]);
+int do_a_round(int* a, int* b, int* c, int* d, const wchar_t* board[8][9], const wchar_t* board_blank[8][9]);
+int check_for_loss(int player_num, const wchar_t* board[8][9]);
 
 
 //Example pointer function

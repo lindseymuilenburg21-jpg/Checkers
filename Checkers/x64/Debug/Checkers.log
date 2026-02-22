@@ -1,2 +1,28 @@
-﻿  main.c
+﻿  functions.c
+C:\Users\linds\Downloads\Checkers\functions.c(80,18): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
+C:\Users\linds\Downloads\Checkers\functions.c(80,18): warning C4024: 'get_peice_cords': different types for formal and actual parameter 1
+C:\Users\linds\Downloads\Checkers\functions.c(80,22): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
+C:\Users\linds\Downloads\Checkers\functions.c(80,22): warning C4024: 'get_peice_cords': different types for formal and actual parameter 2
+C:\Users\linds\Downloads\Checkers\functions.c(82,21): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
+C:\Users\linds\Downloads\Checkers\functions.c(82,21): warning C4024: 'move_player1_piece': different types for formal and actual parameter 1
+C:\Users\linds\Downloads\Checkers\functions.c(82,25): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
+C:\Users\linds\Downloads\Checkers\functions.c(82,25): warning C4024: 'move_player1_piece': different types for formal and actual parameter 2
+C:\Users\linds\Downloads\Checkers\functions.c(82,29): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
+C:\Users\linds\Downloads\Checkers\functions.c(82,29): warning C4024: 'move_player1_piece': different types for formal and actual parameter 3
+C:\Users\linds\Downloads\Checkers\functions.c(82,32): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
+C:\Users\linds\Downloads\Checkers\functions.c(82,32): warning C4024: 'move_player1_piece': different types for formal and actual parameter 4
+C:\Users\linds\Downloads\Checkers\functions.c(93,18): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
+C:\Users\linds\Downloads\Checkers\functions.c(93,18): warning C4024: 'get_peice_cords': different types for formal and actual parameter 1
+C:\Users\linds\Downloads\Checkers\functions.c(93,22): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
+C:\Users\linds\Downloads\Checkers\functions.c(93,22): warning C4024: 'get_peice_cords': different types for formal and actual parameter 2
+C:\Users\linds\Downloads\Checkers\functions.c(95,21): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
+C:\Users\linds\Downloads\Checkers\functions.c(95,21): warning C4024: 'move_player2_piece': different types for formal and actual parameter 1
+C:\Users\linds\Downloads\Checkers\functions.c(95,25): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
+C:\Users\linds\Downloads\Checkers\functions.c(95,25): warning C4024: 'move_player2_piece': different types for formal and actual parameter 2
+C:\Users\linds\Downloads\Checkers\functions.c(95,29): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
+C:\Users\linds\Downloads\Checkers\functions.c(95,29): warning C4024: 'move_player2_piece': different types for formal and actual parameter 3
+C:\Users\linds\Downloads\Checkers\functions.c(95,32): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
+C:\Users\linds\Downloads\Checkers\functions.c(95,32): warning C4024: 'move_player2_piece': different types for formal and actual parameter 4
+  main.c
+  Generating Code...
   Checkers.vcxproj -> C:\Users\linds\Downloads\Checkers\x64\Debug\Checkers.exe

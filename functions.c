@@ -64,76 +64,64 @@ void get_peice_cords(int*a, int*b, int player_num, const wchar_t* board[8][9], c
 	board[*a][*b] = board_blank[*a][*b];
 }
 
-
 /*
-Author: Andrew Martinez
-Function: Prints rules, no inputs or outputs
+Author: Lindsey Muilenburg
+Function: Does one round of player 1 and player 2 movment
 */
-void show_rules(void) {
-	wprintf(L"\n");
-	wprintf(L"Airbender Checkers - Rules:\n");
-	wprintf(L"1) Standard checkers movement: pieces move diagonally forward.\n");
-	wprintf(L"2) Capture by jumping over opponent pieces. Multiple jumps allowed.\n");
-	wprintf(L"3) When a piece reaches the far row it becomes a 'Master' (king) and \nmay move diagonally both directions.\n");
-	wprintf(L"4) Win by capturing all opponent pieces.\n");
-	wprintf(L"Elemental abilities:\n");
-	wprintf(L"- Fire: When a Fire piece captures, it \"explodes\" and also destroys \nany pieces on adjacent squares (including diagonals).\n");
-	wprintf(L"- Air: Air pieces gain extra movement range and may capture along \nstraight (orthogonal) lines, allowing them to take an enemy piece\n any number of squares away if the path is clear.\n");
-	wprintf(L"- Water: When a Water piece captures or uses its ability, it can\n push an adjacent enemy piece one square away into an empty square.\n");
-	wprintf(L"- Earth: Earth pieces create obstacles — squares immediately surrounding\n an Earth piece become blocked and cannot be entered by other pieces.\n");
-	wprintf(L"Avatar: An Avatar piece combines all elemental abilities. To enable the\n Avatar option a player must have at least one Fire, Air, Water, and Earth\n piece on the board; once eligible, a chosen piece may transform into\n the Avatar (rules for transformation and timing are a selectable variant).\n\n\n");
-	//wprintf(L"\nPress ENTER to return: ");
-	//getchar();
-}
 
-/*
-Author: Andrew Martinez
-Function: Starts the game upon user prompting
-*/
-void start_game(void) {
-	wprintf(L"\n[Game Started]\n");
-	wprintf(L"Press ENTER to return: ");
-	getchar();
-}
+int do_a_round(int *a, int *b, int*c, int*d, const wchar_t* board[8][9], const wchar_t* board_blank[8][9]) {
+	int player_num = 1;
 
-/*
-Author: Andrew Martinez
-Function:
-
-void main_menu(void) {
-	int choice;
-
-	while (1) {
-		wprintf(L"\n--- Airbender Checkers ---\n");
-		wprintf(L"1) Play Game\n");
-		wprintf(L"2) Game Rules\n");
-		wprintf(L"3) Quit\n");
-		wprintf(L"Select: ");
-		wscanf(L" %d", &choice);
-		getchar();  // consume newline 
-
-		if (choice == 1) {
-			start_game();
-		}
-		else if (choice == 2) {
-			show_rules();
-		}
-		else if (choice == 3) {
-			wprintf(L"Goodbye!\n");
-			break;
-		}
-		else {
-			wprintf(L"Invalid choice. Try again.\n");
-		}
+	if (check_for_loss(player_num, board) == 0) {
+		return 0;
 	}
+
+	get_peice_cords(&a, &b, player_num, board, board_blank);
+
+	move_player1_piece(&c, &d, a, b, board);
+
+	print_board(board);
+
+	player_num = 2;
+
+	if (check_for_loss(player_num, board) == 0) {
+		return 0;
+	}
+
+	get_peice_cords(&a, &b, player_num, board, board_blank);
+
+	move_player2_piece(&c, &d, a, b, board);
+
+	print_board(board);
+
+	return 1;
 }
-*/
 
 
-/*
-Author: Andrew Martinez
-Function:
-*/
+int check_for_loss(int player_num, const wchar_t* board[8][9]) {
+	int peices_left = 0;
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+
+				if (player_num == 1) {
+					if (board[i][j] == L"⚪") {
+						peices_left = 1;
+					}
+				}
+				if (player_num == 2) {
+					if (board[i][j] == L"⚫"){
+						peices_left = 1;
+					}
+				}
+
+			}
+		}
+		if (peices_left == 0) {
+			wprintf(L"\nGAME OVER\n");
+		}
+		return peices_left;
+}
+
 
 
 // Author : Patrick Tolentino
@@ -328,3 +316,4 @@ int main_menu(void)
 
 	return 0;
 }
+

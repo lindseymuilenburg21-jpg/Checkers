@@ -38,8 +38,6 @@ int main(void) {
 
 	//main_menu();
 
-	show_rules();
-
 	print_board(board);
 
 	set_up(board);
@@ -47,20 +45,12 @@ int main(void) {
 	print_board(board);
 
 	// start of game 
-
-	get_peice_cords(&a, &b, 1, board, board_blank);
+	int running = 1;
+	do {
+		running = do_a_round(&a, &b, &c, &d, board, board_blank);
+		wprintf(L"%d", running);
+	} while (running);
 	
-	move_player1_piece(&c, &d, a, b, board);
-
-	print_board(board);
-
-	get_peice_cords(&a, &b, 2, board, board_blank);
-
-	move_player2_piece(&c, &d, a, b, board);
-
-	print_board(board);
-
-
 
 	
 
