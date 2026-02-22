@@ -1,12 +1,52 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\patis\\Documents\\GitHub\\Checkers\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A9C726F1-DF49-4849-B41A-74AA69B52929}|Checkers.vcxproj|C:\\Users\\patis\\Documents\\GitHub\\Checkers\\functions.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A9C726F1-DF49-4849-B41A-74AA69B52929}|Checkers.vcxproj|solutionrelative:functions.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9C726F1-DF49-4849-B41A-74AA69B52929}|Checkers.vcxproj|C:\\Users\\patis\\Documents\\GitHub\\Checkers\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A9C726F1-DF49-4849-B41A-74AA69B52929}|Checkers.vcxproj|solutionrelative:main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "functions.c",
+              "DocumentMoniker": "C:\\Users\\patis\\Documents\\GitHub\\Checkers\\functions.c",
+              "RelativeDocumentMoniker": "functions.c",
+              "ToolTip": "C:\\Users\\patis\\Documents\\GitHub\\Checkers\\functions.c",
+              "RelativeToolTip": "functions.c",
+              "ViewState": "AgIAALQAAAAAAAAAAAAAAOIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-02-22T02:20:36.377Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main.c",
+              "DocumentMoniker": "C:\\Users\\patis\\Documents\\GitHub\\Checkers\\main.c",
+              "RelativeDocumentMoniker": "main.c",
+              "ToolTip": "C:\\Users\\patis\\Documents\\GitHub\\Checkers\\main.c",
+              "RelativeToolTip": "main.c",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-02-22T02:20:30.995Z"
+            }
+          ]
+        },
         {
           "DockedWidth": 914,
           "SelectedChildIndex": -1,
