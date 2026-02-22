@@ -76,21 +76,15 @@ int do_a_round(int *a, int *b, int*c, int*d, const wchar_t* board[8][9], const w
 		return 0;
 	}
 
-	get_peice_cords(&a, &b, player_num, board, board_blank);
-
-	*a = *row; 
-
-	*b = *column;
+	get_peice_cords(a, b, player_num, board, board_blank);
 	
-	kill(&row, &column, player_num, board, board_blank, board[a][b]);
+	kill(a, b, player_num, board, board_blank, board[*a][*b]);
 
-	activate_ability(&row, &column, player_num, cboard, board_blank, board[a][b]);
+	activate_ability(a, b, player_num, board, board_blank, board[*a][*b]);
 
-	move_player1_piece(&c, &d, a, b, board);
+	move_player1_piece(c, d, *a, *b, board);
 
-	int row1 = c, coll1 = d;
-
-	wprintf(L"ROw: %d Coll: %d", row1, coll1);
+	int row1 = *c, coll1 = *d;
 
 	player1_kinged(board, row1, coll1);
 
@@ -102,17 +96,13 @@ int do_a_round(int *a, int *b, int*c, int*d, const wchar_t* board[8][9], const w
 		return 0;
 	}
 
-	get_peice_cords(&a, &b, player_num, board, board_blank);
-	
-	*a = *row; 
+	get_peice_cords(a, b, player_num, board, board_blank);
 
-	*b = *column;
-	
-	kill(&row, &column, player_num, board, board_blank, board[a][b]);
+	kill(a, b, player_num, board, board_blank, board[*a][*b]);
 
-	activate_ability(&row, &column, player_num, cboard, board_blank, board[a][b]);
+	activate_ability(a, b, player_num, board, board_blank, board[*a][*b]);
 		
-	move_player2_piece(&c, &d, a, b, board);
+	move_player2_piece(c, d, *a, *b, board);
 
 	player2_kinged(board, *c, *d);
 
@@ -379,7 +369,6 @@ void player1_kinged(const wchar_t* board[8][9], int row, int column)
 
 void player2_kinged(const wchar_t* board[8][9], int row, int column)
 {
-	wprintf(L"This is row %d", row);
 	if (wcscmp(board[row][column], L"⚫") == 0 && row == 0)
 	{
 		int kinged_piece = 0, orginal_piece = 0;
@@ -413,55 +402,56 @@ void player2_kinged(const wchar_t* board[8][9], int row, int column)
 }
 
 
-void activate_ability(int* player, int* row, int* column, const wchar_t* board [8][9], const wchar_t* blank[8][9], const wchar_t* L"emoji") {
-int response = 0;
+void activate_ability(int* player, int* row, int* column, const wchar_t* board [8][9], const wchar_t* blank[8][9], const wchar_t* emoji) 
+{
+	int response = 0;
 	wprintf(L"do you want to use your ability? \n type 1 for yes, 2 for no");
 	wscanf(L"%d", &response);
 
-	if (response == 1){
-	if (*L"emoji" == "w") {
-		wprintf(L"Where do you want to go? Go to the opposite color as you currently are:  "); 
-		wscanf(L"%ls %ls", row, column);
+	if (response == 1) {
+		if (*L"emoji" == "w") {
+			wprintf(L"Where do you want to go? Go to the opposite color as you currently are:  ");
+			wscanf(L"%ls %ls", row, column);
 
-		if ((*row > 7 || *row < 0) || (*column > 7 || *column < 0)){
+			if ((*row > 7 || *row < 0) || (*column > 7 || *column < 0)) {
 
 				wprintf(L"you can't go there silly! Input new cords: ");
 				wscanf(L"%ls %ls", row, column);
-		
-		} if (*row > *row + 2 || *column > *column + 2) {
 
-			wprintf(L"You can only move from one point from your current position. \n enter new cords");
-			wscanf(L"%lf %lf", row, column);
-		}
-		else {
-			if (player == 1) {
-				board[*row][*column] = L"⚪";
+			} if (*row > *row + 2 || *column > *column + 2) {
 
-				if (player == 2) {
-					board[*row][*column] = L"⚫";
+				wprintf(L"You can only move from one point from your current position. \n enter new cords");
+				wscanf(L"%lf %lf", row, column);
+			}
+			else {
+				if (player == 1) {
+					board[*row][*column] = L"⚪";
+
+					if (player == 2) {
+						board[*row][*column] = L"⚫";
+					}
+
 				}
-
 			}
 		}
-	}
-	else if (*L"emoji" == "e") {
+		else if (*L"emoji" == "e") {
 
-		
-		board[*row - 1][*column - 1] = L"b";
-		board[*row - 1][*column + 1] = L"b";
-		board[*row + 1][*column - 1] = L"b";
-		board[*row + 1][*column + 1] = L"b";
 
-		board[*row - 1][*column] = L"b";
-		board[*row][*column - 1] = L"b";
-		board[*row + 1][*column] = L"b";
-		board[*row][*column + 1] = L"b";
+			board[*row - 1][*column - 1] = L"b";
+			board[*row - 1][*column + 1] = L"b";
+			board[*row + 1][*column - 1] = L"b";
+			board[*row + 1][*column + 1] = L"b";
 
-	}
-	else if (*L"emoji" == "f") {
-	
+			board[*row - 1][*column] = L"b";
+			board[*row][*column - 1] = L"b";
+			board[*row + 1][*column] = L"b";
+			board[*row][*column + 1] = L"b";
 
-			board[*row - 1][*column - 1] = blank[*row-1][*column -1];
+		}
+		else if (*L"emoji" == "f") {
+
+
+			board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
 			board[*row - 1][*column + 1] = blank[*row - 1][*column + 1];
 			board[*row + 1][*column - 1] = blank[*row + 1][*column - 1];
 			board[*row + 1][*column + 1] = blank[*row + 1][*column + 1];
@@ -471,54 +461,53 @@ int response = 0;
 			board[*row + 1][*column] = blank[*row + 1][*column];
 			board[*row][*column + 1] = blank[*row][*column + 1];
 
-		
 
 
-	}
-	else if (*L"emoji" == "w") {
-		
-		if (player == 1) 
-			if ((board[*row + 2][*column + 2]) && (board[*row - 2][*column - 2]) && (board[*row + 2][*column - 2]) && (board[*row - 2][*column + 2])) {
 
-				if (player = 1) {
-					if (board[*row - 1][*column - 1] != L"⬜" || L"⬛") {
-						board[*row - 2][*column - 2] = L"⚫";
+		}
+		else if (*L"emoji" == "w") {
+
+			if (player == 1) {
+				if ((board[*row + 2][*column + 2]) && (board[*row - 2][*column - 2]) && (board[*row + 2][*column - 2]) && (board[*row - 2][*column + 2])) {
+
+					if (player = 1) {
+						if (board[*row - 1][*column - 1] != L"⬜" || L"⬛") {
+							board[*row - 2][*column - 2] = L"⚫";
+						}
+						if (board[*row - 1][*column + 1] != L"⬜" || L"⬛") {
+							board[*row - 2][*column + 2] = L"⚫";
+						}
+						if (board[*row + 1][*column + 1] != L"⬜" || L"⬛") {
+							board[*row + 2][*column + 2] = L"⚫";
+
+						}
+						if (board[*row + 1][*column - 1] != L"⬜" || L"⬛") {
+							board[*row + 2][*column - 2] = L"⚫";
+
+						}
 					}
-					if (board[*row - 1][*column + 1] != L"⬜" || L"⬛") {
-						board[*row - 2][*column + 2] = L"⚫";
-					}
-					if (board[*row + 1][*column + 1] != L"⬜" || L"⬛") {
-						board[*row + 2][*column + 2] = L"⚫";
 
-					}
-					if (board[*row + 1][*column - 1] != L"⬜" || L"⬛") {
-						board[*row + 2][*column - 2] = L"⚫";
+					if (player == 2) {
+						if (board[*row - 1][*column - 1] != L"⬜" || L"⬛") {
+							board[*row - 2][*column - 2] = L"⚪";
+						}
+						if (board[*row - 1][*column + 1] != L"⬜" || L"⬛") {
+							board[*row - 2][*column + 2] = L"⚪";
+						}
+						if (board[*row + 1][*column + 1] != L"⬜" || L"⬛") {
+							board[*row + 2][*column + 2] = L"⚪";
 
+						}
+						if (board[*row + 1][*column - 1] != L"⬜" || L"⬛") {
+							board[*row + 2][*column - 2] = L"⚪";
+
+						}
 					}
+
 				}
-
-				if (player == 2) {
-					if (board[*row - 1][*column - 1] != L"⬜" || L"⬛") {
-						board[*row - 2][*column - 2] = L"⚪";
-					}
-					if (board[*row - 1][*column + 1] != L"⬜" || L"⬛") {
-						board[*row - 2][*column + 2] = L"⚪";
-					}
-					if (board[*row + 1][*column + 1] != L"⬜" || L"⬛") {
-						board[*row + 2][*column + 2] = L"⚪";
-
-					}
-					if (board[*row + 1][*column - 1] != L"⬜" || L"⬛") {
-						board[*row + 2][*column - 2] = L"⚪";
-
-					}
-				}
-
 			}
-		
+		}
 	}
-
-
 }
 
 /*
@@ -526,75 +515,30 @@ Author: Lyd Thompson
 Purpose: kill the other player
 */
 
-void kill(int* row, int* column, int* player, const wchar_t* board[8][9], const wchar_t* blank[8][9], const wchar_t* L"emoji"){
-wprintf(L"Do you want to kill someone this round? \n put 1 for yes, 2 for no");
-wscanf(L"%d", &awnser);
-	int awnser = 0; 
+void kill(int* row, int* column, int* player, const wchar_t* board[8][9], const wchar_t* blank[8][9], const wchar_t* emoji)
+{
+	int awnser = 0;
+	wprintf(L"Do you want to kill someone this round? \n put 1 for yes, 2 for no");
+	wscanf(L"%d", &awnser);
 
-if (awnser == 1) {
-	if (player == 1) {
-		if (board[*row - 2][*column - 2] && board[*row - 1][*column - 1] == L"⚪") {
-			board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
-		}
-		if (board[*row + 2][*column - 2] && board[*row + 1][*column - 1] == L"⚪") {
-			board[*row + 1][*column - 1] = blank[*row +1][*column - 1];
-		}
-		if (board[*row - 2][*column + 2] && board[*row - 1][*column + 1] == L"⚪") {
-			board[*row - 1][*column + 1] = blank[*row - 1][*column + 1];
-		}
-		if (board[*row + 2][*column + 2] && board[*row + 1][*column + 1] == L"⚪") {
-			board[*row + 1][*column + 1] = blank[*row + 1][*column + 1];
-		}
-	}
-
-	if (player == 2) {
-
-		if (board[*row - 2][*column - 2] && board[*row - 1][*column - 1] == L"⚫") {
-			board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
-		}
-		if (board[*row + 2][*column - 2] && board[*row + 1][*column - 1] == L"⚫") {
-			board[*row + 1][*column - 1] = blank[*row + 1][*column - 1];
-		}
-		if (board[*row - 2][*column + 2] && board[*row - 1][*column + 1] == L"⚫") {
-			board[*row - 1][*column + 1] = blank[*row - 1][*column + 1];
-		}
-		if (board[*row + 2][*column + 2] && board[*row + 1][*column + 1] == L"⚫") {
-			board[*row + 1][*column + 1] = blank[*row + 1][*column + 1];
+	if (awnser == 1) {
+		if (player == 1) {
+			if (board[*row - 2][*column - 2] && board[*row - 1][*column - 1] == L"⚪") {
+				board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
+			}
+			if (board[*row + 2][*column - 2] && board[*row + 1][*column - 1] == L"⚪") {
+				board[*row + 1][*column - 1] = blank[*row + 1][*column - 1];
+			}
+			if (board[*row - 2][*column + 2] && board[*row - 1][*column + 1] == L"⚪") {
+				board[*row - 1][*column + 1] = blank[*row - 1][*column + 1];
+			}
+			if (board[*row + 2][*column + 2] && board[*row + 1][*column + 1] == L"⚪") {
+				board[*row + 1][*column + 1] = blank[*row + 1][*column + 1];
+			}
 		}
 
-	}
+		if (player == 2) {
 
-	if (player == 1 && L"emoji") {
-		if (board[*row - 2][*column - 2] && board[*row - 1][*column - 1] == L"⚪") {
-			board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
-		}
-		if (board[*row + 2][*column - 2] && board[*row + 1][*column - 1] == L"⚪") {
-			board[*row + 1][*column - 1] = blank[*row + 1][*column - 1];
-			board[*row + 1][*column - 1] = blank[*row + 1][*column - 1];
-		}
-		if (board[*row - 2][*column + 2] && board[*row - 1][*column + 1] == L"⚪") {
-			board[*row - 1][*column + 1] = blank[*row - 1][*column + 1];
-		}
-		if (board[*row + 2][*column + 2] && board[*row + 1][*column + 1] == L"⚪") {
-			board[*row + 1][*column + 1] = blank[*row + 1][*column + 1];
-		} 
-
-
-		if (board[*row - 2][*column] && board[*row - 1][*column] == L"⚪") {
-			board[*row - 1][*column] = blank[*row - 1][*column];
-		}
-		if (board[*row][*column - 2] && board[*row - 1][*column] == L"⚪") {
-			board[*row - 1][*column] = blank[*row - 1][*column];
-		}
-		if (board[*row + 2][*column] && board[*row + 1][*column] == L"⚪") {
-			board[*row + 1][*column] = blank[*row + 1][*column];
-		}
-		if (board[*row][*column + 2] && board[*row - 1][*column] == L"⚪") {
-			board[*row ][*column + 1] = blank[*row][*column + 1];
-		}
-
-		
-		if (player == 2 && L"emoji") {
 			if (board[*row - 2][*column - 2] && board[*row - 1][*column - 1] == L"⚫") {
 				board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
 			}
@@ -608,23 +552,66 @@ if (awnser == 1) {
 				board[*row + 1][*column + 1] = blank[*row + 1][*column + 1];
 			}
 
+		}
 
-			if (board[*row - 2][*column] && board[*row - 1][*column] == L"⚫") {
+		if (player == 1 && L"emoji") {
+			if (board[*row - 2][*column - 2] && board[*row - 1][*column - 1] == L"⚪") {
+				board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
+			}
+			if (board[*row + 2][*column - 2] && board[*row + 1][*column - 1] == L"⚪") {
+				board[*row + 1][*column - 1] = blank[*row + 1][*column - 1];
+				board[*row + 1][*column - 1] = blank[*row + 1][*column - 1];
+			}
+			if (board[*row - 2][*column + 2] && board[*row - 1][*column + 1] == L"⚪") {
+				board[*row - 1][*column + 1] = blank[*row - 1][*column + 1];
+			}
+			if (board[*row + 2][*column + 2] && board[*row + 1][*column + 1] == L"⚪") {
+				board[*row + 1][*column + 1] = blank[*row + 1][*column + 1];
+			}
+
+
+			if (board[*row - 2][*column] && board[*row - 1][*column] == L"⚪") {
 				board[*row - 1][*column] = blank[*row - 1][*column];
 			}
-			if (board[*row][*column - 2] && board[*row - 1][*column] == L"⚫") {
+			if (board[*row][*column - 2] && board[*row - 1][*column] == L"⚪") {
 				board[*row - 1][*column] = blank[*row - 1][*column];
 			}
-			if (board[*row + 2][*column] && board[*row + 1][*column] == L"⚫") {
+			if (board[*row + 2][*column] && board[*row + 1][*column] == L"⚪") {
 				board[*row + 1][*column] = blank[*row + 1][*column];
 			}
-			if (board[*row][*column + 2] && board[*row - 1][*column] == L"⚫") {
+			if (board[*row][*column + 2] && board[*row - 1][*column] == L"⚪") {
 				board[*row][*column + 1] = blank[*row][*column + 1];
 			}
-		
 
-	}
+
+			if (player == 2 && L"emoji") {
+				if (board[*row - 2][*column - 2] && board[*row - 1][*column - 1] == L"⚫") {
+					board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
+				}
+				if (board[*row + 2][*column - 2] && board[*row + 1][*column - 1] == L"⚫") {
+					board[*row + 1][*column - 1] = blank[*row + 1][*column - 1];
+				}
+				if (board[*row - 2][*column + 2] && board[*row - 1][*column + 1] == L"⚫") {
+					board[*row - 1][*column + 1] = blank[*row - 1][*column + 1];
+				}
+				if (board[*row + 2][*column + 2] && board[*row + 1][*column + 1] == L"⚫") {
+					board[*row + 1][*column + 1] = blank[*row + 1][*column + 1];
+				}
+
+
+				if (board[*row - 2][*column] && board[*row - 1][*column] == L"⚫") {
+					board[*row - 1][*column] = blank[*row - 1][*column];
+				}
+				if (board[*row][*column - 2] && board[*row - 1][*column] == L"⚫") {
+					board[*row - 1][*column] = blank[*row - 1][*column];
+				}
+				if (board[*row + 2][*column] && board[*row + 1][*column] == L"⚫") {
+					board[*row + 1][*column] = blank[*row + 1][*column];
+				}
+				if (board[*row][*column + 2] && board[*row - 1][*column] == L"⚫") {
+					board[*row][*column + 1] = blank[*row][*column + 1];
+				}
+			}
+		}
 	}
 }
-}
-	

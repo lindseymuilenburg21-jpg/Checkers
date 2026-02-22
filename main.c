@@ -35,16 +35,6 @@ int main(void) {
 	{L"⬛", L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"\n" },
 	{L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"⬛",L"\n"},
 	};
-	const wchar_t* test_board[8][9] = {
-	{L"⬛", L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"\n" },
-	{L"⬜", L"⬛", L"⬜", L"⚪", L"⬜", L"⬛", L"⬜", L"⬛",L"\n"},
-	{L"⬛", L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"\n" },
-	{L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"⬛",L"\n"},
-	{L"⬛", L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"\n" },
-	{L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"⬛",L"\n"},
-	{L"⬛", L"⬜", L"⚫", L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"\n" },
-	{L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"⬛",L"\n"},
-	};
 
 	int a = 0, b = 0; //coords of peice wanting to be moved, row and collumn
 	int c = 0, d = 0; //coords of new place peice is moving to, row and collumn
@@ -53,12 +43,7 @@ int main(void) {
 
 	print_board(board);
 
-	//set_up(board);
-	for (int j = 0; j < 8; j ++) {
-		for (int i = 0; i < 8; i ++) {
-			board[j][i] = test_board[j][i];
-		}
-	}
+	set_up(board);
 
 	print_board(board);
 

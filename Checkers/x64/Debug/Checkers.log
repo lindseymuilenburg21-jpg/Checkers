@@ -1,30 +1,29 @@
 ﻿  functions.c
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(79,18): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(79,18): warning C4024: 'get_peice_cords': different types for formal and actual parameter 1
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(79,22): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(79,22): warning C4024: 'get_peice_cords': different types for formal and actual parameter 2
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(81,21): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(81,21): warning C4024: 'move_player1_piece': different types for formal and actual parameter 1
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(81,25): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(81,25): warning C4024: 'move_player1_piece': different types for formal and actual parameter 2
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(81,29): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(81,29): warning C4024: 'move_player1_piece': different types for formal and actual parameter 3
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(81,32): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(81,32): warning C4024: 'move_player1_piece': different types for formal and actual parameter 4
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(97,18): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(97,18): warning C4024: 'get_peice_cords': different types for formal and actual parameter 1
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(97,22): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(97,22): warning C4024: 'get_peice_cords': different types for formal and actual parameter 2
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(99,21): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(99,21): warning C4024: 'move_player2_piece': different types for formal and actual parameter 1
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(99,25): warning C4047: 'function': 'int *' differs in levels of indirection from 'int **'
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(99,25): warning C4024: 'move_player2_piece': different types for formal and actual parameter 2
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(99,29): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
-  main.c
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(99,29): warning C4024: 'move_player2_piece': different types for formal and actual parameter 3
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(99,32): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(99,32): warning C4024: 'move_player2_piece': different types for formal and actual parameter 4
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(83,6): warning C4047: 'initializing': 'int' differs in levels of indirection from 'int *'
-C:\Users\patis\Documents\GitHub\Checkers\functions.c(83,16): warning C4047: 'initializing': 'int' differs in levels of indirection from 'int *'
-  Generating Code...
-  Checkers.vcxproj -> C:\Users\patis\Documents\GitHub\Checkers\x64\Debug\Checkers.exe
+C:\Users\thomp\source\repos\Checkers\functions.c(81,13): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+C:\Users\thomp\source\repos\Checkers\functions.c(81,13): warning C4024: 'kill': different types for formal and actual parameter 3
+C:\Users\thomp\source\repos\Checkers\functions.c(83,25): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+C:\Users\thomp\source\repos\Checkers\functions.c(83,25): warning C4024: 'activate_ability': different types for formal and actual parameter 3
+C:\Users\thomp\source\repos\Checkers\functions.c(101,13): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+C:\Users\thomp\source\repos\Checkers\functions.c(101,13): warning C4024: 'kill': different types for formal and actual parameter 3
+C:\Users\thomp\source\repos\Checkers\functions.c(103,25): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+C:\Users\thomp\source\repos\Checkers\functions.c(103,25): warning C4024: 'activate_ability': different types for formal and actual parameter 3
+C:\Users\thomp\source\repos\Checkers\functions.c(412,17): warning C4047: '==': 'int' differs in levels of indirection from 'char [2]'
+C:\Users\thomp\source\repos\Checkers\functions.c(414,11): warning C4477: 'wscanf' : format string '%ls' requires an argument of type 'unsigned short *', but variadic argument 1 has type 'int *'
+C:\Users\thomp\source\repos\Checkers\functions.c(414,11): warning C4477: 'wscanf' : format string '%ls' requires an argument of type 'unsigned short *', but variadic argument 2 has type 'int *'
+C:\Users\thomp\source\repos\Checkers\functions.c(419,12): warning C4477: 'wscanf' : format string '%ls' requires an argument of type 'unsigned short *', but variadic argument 1 has type 'int *'
+C:\Users\thomp\source\repos\Checkers\functions.c(419,12): warning C4477: 'wscanf' : format string '%ls' requires an argument of type 'unsigned short *', but variadic argument 2 has type 'int *'
+C:\Users\thomp\source\repos\Checkers\functions.c(424,12): warning C4477: 'wscanf' : format string '%lf' requires an argument of type 'double *', but variadic argument 1 has type 'int *'
+C:\Users\thomp\source\repos\Checkers\functions.c(424,12): warning C4477: 'wscanf' : format string '%lf' requires an argument of type 'double *', but variadic argument 2 has type 'int *'
+C:\Users\thomp\source\repos\Checkers\functions.c(427,16): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
+C:\Users\thomp\source\repos\Checkers\functions.c(430,17): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
+C:\Users\thomp\source\repos\Checkers\functions.c(437,22): warning C4047: '==': 'int' differs in levels of indirection from 'char [2]'
+C:\Users\thomp\source\repos\Checkers\functions.c(451,22): warning C4047: '==': 'int' differs in levels of indirection from 'char [2]'
+C:\Users\thomp\source\repos\Checkers\functions.c(468,22): warning C4047: '==': 'int' differs in levels of indirection from 'char [2]'
+C:\Users\thomp\source\repos\Checkers\functions.c(470,15): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
+C:\Users\thomp\source\repos\Checkers\functions.c(473,17): warning C4047: '=': 'int *' differs in levels of indirection from 'int'
+C:\Users\thomp\source\repos\Checkers\functions.c(490,17): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
+C:\Users\thomp\source\repos\Checkers\functions.c(525,14): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
+C:\Users\thomp\source\repos\Checkers\functions.c(540,14): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
+C:\Users\thomp\source\repos\Checkers\functions.c(557,14): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
+C:\Users\thomp\source\repos\Checkers\functions.c(587,15): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
+  Checkers.vcxproj -> C:\Users\thomp\source\repos\Checkers\x64\Debug\Checkers.exe

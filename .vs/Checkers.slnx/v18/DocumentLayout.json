@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\patis\\Documents\\GitHub\\Checkers\\",
+  "WorkspaceRootPath": "C:\\Users\\thomp\\source\\repos\\Checkers\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A9C726F1-DF49-4849-B41A-74AA69B52929}|Checkers.vcxproj|C:\\Users\\patis\\Documents\\GitHub\\Checkers\\functions.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{A9C726F1-DF49-4849-B41A-74AA69B52929}|Checkers.vcxproj|C:\\Users\\thomp\\source\\repos\\Checkers\\functions.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A9C726F1-DF49-4849-B41A-74AA69B52929}|Checkers.vcxproj|solutionrelative:functions.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9C726F1-DF49-4849-B41A-74AA69B52929}|Checkers.vcxproj|C:\\Users\\patis\\Documents\\GitHub\\Checkers\\header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A9C726F1-DF49-4849-B41A-74AA69B52929}|Checkers.vcxproj|solutionrelative:header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A9C726F1-DF49-4849-B41A-74AA69B52929}|Checkers.vcxproj|C:\\Users\\thomp\\source\\repos\\Checkers\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A9C726F1-DF49-4849-B41A-74AA69B52929}|Checkers.vcxproj|solutionrelative:main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9C726F1-DF49-4849-B41A-74AA69B52929}|Checkers.vcxproj|C:\\Users\\patis\\Documents\\GitHub\\Checkers\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A9C726F1-DF49-4849-B41A-74AA69B52929}|Checkers.vcxproj|solutionrelative:main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A9C726F1-DF49-4849-B41A-74AA69B52929}|Checkers.vcxproj|C:\\Users\\thomp\\source\\repos\\Checkers\\header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A9C726F1-DF49-4849-B41A-74AA69B52929}|Checkers.vcxproj|solutionrelative:header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,13 +26,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "header.h",
-              "DocumentMoniker": "C:\\Users\\patis\\Documents\\GitHub\\Checkers\\header.h",
+              "DocumentMoniker": "C:\\Users\\thomp\\source\\repos\\Checkers\\header.h",
               "RelativeDocumentMoniker": "header.h",
-              "ToolTip": "C:\\Users\\patis\\Documents\\GitHub\\Checkers\\header.h",
+              "ToolTip": "C:\\Users\\thomp\\source\\repos\\Checkers\\header.h",
               "RelativeToolTip": "header.h",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACEAAABFAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADgAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-02-22T05:04:11.848Z",
               "EditorCaption": ""
@@ -41,24 +41,24 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "functions.c",
-              "DocumentMoniker": "C:\\Users\\patis\\Documents\\GitHub\\Checkers\\functions.c",
+              "DocumentMoniker": "C:\\Users\\thomp\\source\\repos\\Checkers\\functions.c",
               "RelativeDocumentMoniker": "functions.c",
-              "ToolTip": "C:\\Users\\patis\\Documents\\GitHub\\Checkers\\functions.c",
+              "ToolTip": "C:\\Users\\thomp\\source\\repos\\Checkers\\functions.c",
               "RelativeToolTip": "functions.c",
-              "ViewState": "AgIAAP0AAAAAAAAAAAAAAGoBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAYwFYAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-02-22T02:27:36.768Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "main.c",
-              "DocumentMoniker": "C:\\Users\\patis\\Documents\\GitHub\\Checkers\\main.c",
+              "DocumentMoniker": "C:\\Users\\thomp\\source\\repos\\Checkers\\main.c",
               "RelativeDocumentMoniker": "main.c",
-              "ToolTip": "C:\\Users\\patis\\Documents\\GitHub\\Checkers\\main.c",
+              "ToolTip": "C:\\Users\\thomp\\source\\repos\\Checkers\\main.c",
               "RelativeToolTip": "main.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAC0AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-02-22T02:20:30.995Z",
               "EditorCaption": ""
