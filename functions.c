@@ -132,3 +132,97 @@ void main_menu(void) {
 Author: Andrew Martinez
 Function:
 */
+
+
+// Author : Patrick Tolentino
+// Function : Gets the bender ability after kinging a piece
+
+int get_bender_abilities(int kinged_piece)
+{
+	int option = 0;
+	int result = 0;
+
+
+	wprintf(L"Your powered! Pick your bending ability: \n");
+	wprintf(L"----------------------------------------\n");
+	wprintf(L"1. Water\n");
+	wprintf(L"2. Earth\n");
+	wprintf(L"3. Fire\n");
+	wprintf(L"4. Air\n");
+	wprintf(L"----------------------------------------\n");
+
+	do
+	{
+		wprintf(L"What will you choose? (Pick 1-4): ");
+
+		result = wscanf(L" %d", &option);
+
+		if (result != 1)
+		{
+			wprintf(L"Invalid input type! Please enter numbers only!\n");
+
+			while (getchar() != '\n');
+		}
+
+		else if (option < 1 || option > 4)
+		{
+			wprintf(L"Invalid option, try again!\n");
+		}
+	} while (option < 1 || option > 4);
+
+	if (option == 1)
+	{
+		wprintf(L"Your piece is now a Water bender!\n");
+	}
+
+	else if (option == 2)
+	{
+		wprintf(L"Your piece is now an Earth bender!\n");
+	}
+
+	else if (option == 3)
+	{
+		wprintf(L"Your piece is now a Fire bender!\n");
+	}
+
+	else if (option == 4)
+	{
+		wprintf(L"Your piece is now an Air bender!\n");
+	}
+
+	return option;
+
+}
+
+// Author : Patrick
+// Function : Moves a normal white piece
+
+void move_normal_white_piece(int* row, int* column, int original_row, int original_column)
+{
+	_setmode(_fileno(stdout), _O_U16TEXT);
+	_setmode(_fileno(stdin), _O_U16TEXT);
+	do
+	{
+		wprintf(L"Where would you like to move this piece (Enter row then column from values 0-7): ");
+		wscanf(L" %d %d", row, column);
+
+
+		if (*row < 0 || *row > 7 || *column < 0 || *column > 7)
+		{
+			wprintf(L"Not a spot on the board, try again!\n");
+		}
+
+		if ((*row == (original_row - 1) && *column == (original_column - 1)) || (*row == (original_row - 1) && *column == (original_column + 1)))
+		{
+			break;
+		}
+		else
+		{
+			wprintf(L"Not a valid move for this piece! Try again!\n");
+		}
+	} while (!((*row == (original_row - 1) && *column == (original_column - 1)) || (*row == (original_row - 1) && *column == (original_column + 1))));
+
+}
+
+
+
