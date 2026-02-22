@@ -22,7 +22,38 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "functions.c",
+              "DocumentMoniker": "C:\\Users\\patis\\Documents\\GitHub\\Checkers\\functions.c",
+              "RelativeDocumentMoniker": "functions.c",
+              "ToolTip": "C:\\Users\\patis\\Documents\\GitHub\\Checkers\\functions.c",
+              "RelativeToolTip": "functions.c",
+              "ViewState": "AgIAALQAAAAAAAAAAAAAAOIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-02-22T02:20:36.377Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main.c",
+              "DocumentMoniker": "C:\\Users\\patis\\Documents\\GitHub\\Checkers\\main.c",
+              "RelativeDocumentMoniker": "main.c",
+              "ToolTip": "C:\\Users\\patis\\Documents\\GitHub\\Checkers\\main.c",
+              "RelativeToolTip": "main.c",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-02-22T02:20:30.995Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 914,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
