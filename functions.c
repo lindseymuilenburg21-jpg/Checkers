@@ -6,7 +6,9 @@ Author: Lindsey Muilenburg
 Function: takes in current board array, and prints it, no outputs
 */
 void print_board(const wchar_t* board[8][9]) {
+	wprintf(L"  0 1 2 3 4 5 6 7\n");
 	for (int i = 0; i < 8; i++) {
+		wprintf(L"%d ", i);
 		for (int j = 0; j < 9; j++) {
 			wprintf(L"%ls", board[i][j]);
 		}
@@ -47,6 +49,20 @@ for (int j = 5; j < 8; j += 2) {
 }
 }
 
+void get_peice_cords(int*a, int*b, int player_num, const wchar_t* board[8][9], const wchar_t* board_blank[8][9]) {
+
+	do  {
+		wprintf(L"Player %d, it's your turn!\nWhich peice would you like to move? \nEnter: row (space) collumn\n", player_num);
+		wscanf(L" %d %d", a, b);
+		if (*a >= 0 && *b >= 0 && *a <= 7 && *b <= 7) {
+			break;
+		}
+		wprintf(L"Sorry! Thats not a vaild placment, try again\n");
+	} while (!(*a >= 0 && *b >= 0 && *a <= 7 && *b <= 7));
+	board[*a][*b] = board_blank[*a][*b];
+}
+
+
 /*
 Author: Andrew Martinez
 Function: Prints rules, no inputs or outputs
@@ -56,16 +72,16 @@ void show_rules(void) {
 	wprintf(L"Airbender Checkers - Rules:\n");
 	wprintf(L"1) Standard checkers movement: pieces move diagonally forward.\n");
 	wprintf(L"2) Capture by jumping over opponent pieces. Multiple jumps allowed.\n");
-	wprintf(L"3) When a piece reaches the far row it becomes a 'Master' (king) and may move diagonally both directions.\n");
+	wprintf(L"3) When a piece reaches the far row it becomes a 'Master' (king) and \nmay move diagonally both directions.\n");
 	wprintf(L"4) Win by capturing all opponent pieces.\n");
 	wprintf(L"Elemental abilities:\n");
-	wprintf(L"- Fire: When a Fire piece captures, it \"explodes\" and also destroys any pieces on adjacent squares (including diagonals).\n");
-	wprintf(L"- Air: Air pieces gain extra movement range and may capture along straight (orthogonal) lines, allowing them to take an enemy piece any number of squares away if the path is clear.\n");
-	wprintf(L"- Water: When a Water piece captures or uses its ability, it can push an adjacent enemy piece one square away into an empty square.\n");
-	wprintf(L"- Earth: Earth pieces create obstacles — squares immediately surrounding an Earth piece become blocked and cannot be entered by other pieces.\n");
-	wprintf(L"Avatar: An Avatar piece combines all elemental abilities. To enable the Avatar option a player must have at least one Fire, Air, Water, and Earth piece on the board; once eligible, a chosen piece may transform into the Avatar (rules for transformation and timing are a selectable variant).\n");
-	wprintf(L"\nPress ENTER to return: ");
-	getchar();
+	wprintf(L"- Fire: When a Fire piece captures, it \"explodes\" and also destroys \nany pieces on adjacent squares (including diagonals).\n");
+	wprintf(L"- Air: Air pieces gain extra movement range and may capture along \nstraight (orthogonal) lines, allowing them to take an enemy piece\n any number of squares away if the path is clear.\n");
+	wprintf(L"- Water: When a Water piece captures or uses its ability, it can\n push an adjacent enemy piece one square away into an empty square.\n");
+	wprintf(L"- Earth: Earth pieces create obstacles — squares immediately surrounding\n an Earth piece become blocked and cannot be entered by other pieces.\n");
+	wprintf(L"Avatar: An Avatar piece combines all elemental abilities. To enable the\n Avatar option a player must have at least one Fire, Air, Water, and Earth\n piece on the board; once eligible, a chosen piece may transform into\n the Avatar (rules for transformation and timing are a selectable variant).\n\n\n");
+	//wprintf(L"\nPress ENTER to return: ");
+	//getchar();
 }
 
 /*
@@ -81,7 +97,7 @@ void start_game(void) {
 /*
 Author: Andrew Martinez
 Function:
-*/
+
 void main_menu(void) {
 	int choice;
 
@@ -91,8 +107,8 @@ void main_menu(void) {
 		wprintf(L"2) Game Rules\n");
 		wprintf(L"3) Quit\n");
 		wprintf(L"Select: ");
-		wscanf(L"%d", &choice);
-		getchar();  /* consume newline */
+		wscanf(L" %d", &choice);
+		getchar();  // consume newline 
 
 		if (choice == 1) {
 			start_game();
@@ -109,6 +125,7 @@ void main_menu(void) {
 		}
 	}
 }
+*/
 
 
 /*

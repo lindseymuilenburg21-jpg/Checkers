@@ -32,9 +32,10 @@
               "RelativeDocumentMoniker": "header.h",
               "ToolTip": "C:\\Users\\linds\\Downloads\\Checkers\\header.h",
               "RelativeToolTip": "header.h",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABIAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-02-21T20:21:06.375Z"
+              "WhenOpened": "2026-02-21T20:21:06.375Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -44,9 +45,10 @@
               "RelativeDocumentMoniker": "functions.c",
               "ToolTip": "C:\\Users\\linds\\Downloads\\Checkers\\functions.c",
               "RelativeToolTip": "functions.c",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAAAFUAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAADcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2026-02-21T20:20:56.539Z"
+              "WhenOpened": "2026-02-21T20:20:56.539Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -56,7 +58,7 @@
               "RelativeDocumentMoniker": "main.c",
               "ToolTip": "C:\\Users\\linds\\Downloads\\Checkers\\main.c",
               "RelativeToolTip": "main.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-02-21T20:20:46.207Z",
               "EditorCaption": ""

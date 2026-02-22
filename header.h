@@ -17,6 +17,7 @@ void set_up(const wchar_t* board[8][9]);
 void show_rules(void);
 void start_game(void);
 void main_menu(void);
+void get_peice_cords(int* a, int* b, int player_num, const wchar_t* board[8][9], const wchar_t* board_blank[8][9]);
 
 
 //Example pointer function

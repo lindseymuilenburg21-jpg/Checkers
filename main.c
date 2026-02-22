@@ -33,13 +33,25 @@ int main(void) {
 	{L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"⬛", L"⬜", L"⬛",L"\n"},
 	};
 
-	main_menu();
+	int a = 0, b = 0; //coords of peice wanting to be moved, row and collumn
+
+	//main_menu();
+
+	show_rules();
 
 	print_board(board);
 
 	set_up(board);
 
 	print_board(board);
+
+	// start of game 
+
+	get_peice_cords(&a, &b, 1, board, board_blank);
+	
+	print_board(board);
+
+
 
 
 	return 0;
