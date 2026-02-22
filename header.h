@@ -52,4 +52,8 @@ int get_bender_abilities(void);
 
 	//get_two_ints(&x,&y);
 	//
-	//wprintf(L"\nYou entered %d and %d\n", x, y);
+	//wprintf(L"\nYou entered %d and %d\n", x, y); 
+
+void activate_ability(int* row, int* column, const wchar_t* board[8][9], const wchar_t* L"emoji");
+ 
+void kill(int* row, int* column, int* player, const wchar_t* board[8][9], const wchar_t* blank[8][9], const wchar_t* L"emoji");
