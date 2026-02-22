@@ -78,6 +78,14 @@ int do_a_round(int *a, int *b, int*c, int*d, const wchar_t* board[8][9], const w
 
 	get_peice_cords(&a, &b, player_num, board, board_blank);
 
+	*a = *row; 
+
+	*b = *column;
+	
+	kill(&row, &column, player_num, board, board_blank, board[a][b]);
+
+	activate_ability(&row, &column, player_num, cboard, board_blank, board[a][b]);
+
 	move_player1_piece(&c, &d, a, b, board);
 
 	int row1 = c, coll1 = d;
@@ -95,7 +103,15 @@ int do_a_round(int *a, int *b, int*c, int*d, const wchar_t* board[8][9], const w
 	}
 
 	get_peice_cords(&a, &b, player_num, board, board_blank);
+	
+	*a = *row; 
 
+	*b = *column;
+	
+	kill(&row, &column, player_num, board, board_blank, board[a][b]);
+
+	activate_ability(&row, &column, player_num, cboard, board_blank, board[a][b]);
+		
 	move_player2_piece(&c, &d, a, b, board);
 
 	player2_kinged(board, *c, *d);
@@ -398,11 +414,12 @@ void player2_kinged(const wchar_t* board[8][9], int row, int column)
 
 
 void activate_ability(int* player, int* row, int* column, const wchar_t* board [8][9], const wchar_t* blank[8][9], const wchar_t* L"emoji") {
-	//const  wchar_t* da_emoji = L"emoji";
-	//int* da_row = *row, da_column = *column;
-	//const  wchar_t* da_board = board;
+int response = 0;
+	wprintf(L"do you want to use your ability? \n type 1 for yes, 2 for no");
+	wscanf(L"%d", &response);
 
-	if (*L"emoji" = "w") {
+	if (response == 1){
+	if (*L"emoji" == "w") {
 		wprintf(L"Where do you want to go? Go to the opposite color as you currently are:  "); 
 		wscanf(L"%ls %ls", row, column);
 
@@ -417,17 +434,17 @@ void activate_ability(int* player, int* row, int* column, const wchar_t* board [
 			wscanf(L"%lf %lf", row, column);
 		}
 		else {
-			if (player = 1) {
+			if (player == 1) {
 				board[*row][*column] = L"⚪";
 
-				if (player = 2) {
+				if (player == 2) {
 					board[*row][*column] = L"⚫";
 				}
 
 			}
 		}
 	}
-	else if (*L"emoji" = "e") {
+	else if (*L"emoji" == "e") {
 
 		
 		board[*row - 1][*column - 1] = L"b";
@@ -441,7 +458,7 @@ void activate_ability(int* player, int* row, int* column, const wchar_t* board [
 		board[*row][*column + 1] = L"b";
 
 	}
-	else if (*L"emoji" = "f") {
+	else if (*L"emoji" == "f") {
 	
 
 			board[*row - 1][*column - 1] = blank[*row-1][*column -1];
@@ -458,9 +475,9 @@ void activate_ability(int* player, int* row, int* column, const wchar_t* board [
 
 
 	}
-	else if (*L"emoji" = "w") {
+	else if (*L"emoji" == "w") {
 		
-		if (player = 1) 
+		if (player == 1) 
 			if ((board[*row + 2][*column + 2]) && (board[*row - 2][*column - 2]) && (board[*row + 2][*column - 2]) && (board[*row - 2][*column + 2])) {
 
 				if (player = 1) {
@@ -480,7 +497,7 @@ void activate_ability(int* player, int* row, int* column, const wchar_t* board [
 					}
 				}
 
-				if (player = 2) {
+				if (player == 2) {
 					if (board[*row - 1][*column - 1] != L"⬜" || L"⬛") {
 						board[*row - 2][*column - 2] = L"⚪";
 					}
@@ -510,8 +527,12 @@ Purpose: kill the other player
 */
 
 void kill(int* row, int* column, int* player, const wchar_t* board[8][9], const wchar_t* blank[8][9], const wchar_t* L"emoji"){
-	
-	if (player = 1) {
+wprintf(L"Do you want to kill someone this round? \n put 1 for yes, 2 for no");
+wscanf(L"%d", &awnser);
+	int awnser = 0; 
+
+if (awnser == 1) {
+	if (player == 1) {
 		if (board[*row - 2][*column - 2] && board[*row - 1][*column - 1] == L"⚪") {
 			board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
 		}
@@ -526,7 +547,7 @@ void kill(int* row, int* column, int* player, const wchar_t* board[8][9], const 
 		}
 	}
 
-	if (player = 2) {
+	if (player == 2) {
 
 		if (board[*row - 2][*column - 2] && board[*row - 1][*column - 1] == L"⚫") {
 			board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
@@ -543,7 +564,7 @@ void kill(int* row, int* column, int* player, const wchar_t* board[8][9], const 
 
 	}
 
-	if (player = 1 && L"emoji") {
+	if (player == 1 && L"emoji") {
 		if (board[*row - 2][*column - 2] && board[*row - 1][*column - 1] == L"⚪") {
 			board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
 		}
@@ -573,7 +594,7 @@ void kill(int* row, int* column, int* player, const wchar_t* board[8][9], const 
 		}
 
 		
-		if (player = 2 && L"emoji") {
+		if (player == 2 && L"emoji") {
 			if (board[*row - 2][*column - 2] && board[*row - 1][*column - 1] == L"⚫") {
 				board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
 			}
@@ -603,5 +624,7 @@ void kill(int* row, int* column, int* player, const wchar_t* board[8][9], const 
 		
 
 	}
+	}
+}
 }
 	
