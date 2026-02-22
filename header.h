@@ -6,6 +6,13 @@
 #include <io.h>
 #include <locale.h>				//Last three help with the Unicode somehow
 
+// wind/air 💨
+// rock 🗿
+// fire 🔥 
+// water 💧 
+// wall 🧱 
+// avatar 🌈 
+
 //const wchar_t* name_1 = L"jessica"; data type example for strings of unicode
 //wprintf(L"%ls") print for unicode characters
 //Wscanf(L"") scan for unicode characters
