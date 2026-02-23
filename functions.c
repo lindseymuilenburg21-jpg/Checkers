@@ -325,7 +325,7 @@ void show_rules(void)
 
 void start_game(void) {
 	wprintf(L"\n[Game Started]\n");
-	wprintf(L"Press ENTER to return: ");
+	wprintf(L"Press ENTER to return: \n");
 	getwchar();
 }
 
@@ -347,20 +347,19 @@ int main_menu(void)
 
 		if (choice == 1) {
 			start_game();
+			return 1;
 		}
 		else if (choice == 2) {
 			show_rules();
 		}
 		else if (choice == 3) {
 			wprintf(L"Goodbye!\n");
-			break;
+			return 0;
 		}
 		else {
 			wprintf(L"Invalid choice. Try again.\n");
 		}
 	}
-
-	return 0;
 }
 
 void player1_kinged(const wchar_t* board[8][9], int row, int column)

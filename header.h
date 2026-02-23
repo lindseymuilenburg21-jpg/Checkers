@@ -7,12 +7,15 @@
 #include <locale.h>	//Last three help with the Unicode somehow
 #include <wchar.h>
 
-// wind/air 💨
-// rock 🗿
-// fire 🔥 
-// water 💧 
 // wall 🧱 
-// avatar 🌈 
+
+//L"♒︎ (water)
+//L"⛰️ (earth)
+//L"♨ (fire)
+//L"☁️ (air)
+//L"☯ (avatar)
+//L"⌬(wall)" // make sure to have a space after the emjoi
+
 
 //const wchar_t* name_1 = L"jessica"; data type example for strings of unicode
 //wprintf(L"%ls") print for unicode characters
