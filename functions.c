@@ -52,15 +52,47 @@ for (int j = 5; j < 8; j += 2) {
 }
 
 void get_peice_cords(int*a, int*b, int player_num, const wchar_t* board[8][9], const wchar_t* board_blank[8][9]) {
+	int free = 1;
+	const wchar_t* correct_peice = L"null";
+	if (player_num == 1) { correct_peice = L"⚪"; 	}
+	if (player_num == 2) { correct_peice = L"⚫"; 	}
+	
+	wprintf(L"Player %d, it's your turn!\n", player_num);
 
 	do  {
-		wprintf(L"Player %d, it's your turn!\nWhich peice would you like to move? \nEnter: row (space) collumn\n", player_num);
+		free = 1;
+
+		wprintf(L"Which peice would you like to move? \nEnter: row (space) collumn\n");
 		wscanf(L" %d %d", a, b);
-		if (*a >= 0 && *b >= 0 && *a <= 7 && *b <= 7) {
-			break;
+
+		if (player_num == 1) {
+			
+			if (!wcscmp(board[*a][*b], L"⚫")) {
+				wprintf(L"Hey! That's not yours! Try moving your own peice\n");
+			}
+			else if (wcscmp(board[*a - 1][*b - 1], L"⬛") && wcscmp(board[*a - 1][*b - 1], L"⬜") && wcscmp(board[*a - 1][*b + 1], L"⬛") && wcscmp(board[*a - 1][*b + 1], L"⬜")) {
+				wprintf(L"That peice looks sorta Trapped. Try picking another one\n");
+				free = 0;
+			}
 		}
-		wprintf(L"Sorry! Thats not a vaild placment, try again\n");
-	} while (!(*a >= 0 && *b >= 0 && *a <= 7 && *b <= 7));
+		else if (player_num == 2) {
+			
+			if (!wcscmp(board[*a][*b], L"⚪")) {
+				wprintf(L"Hey! That's not yours! Try moving your own peice\n");
+			}
+			else if (wcscmp(board[*a + 1][*b - 1], L"⬛") && wcscmp(board[*a + 1][*b - 1], L"⬜") && wcscmp(board[*a + 1][*b + 1], L"⬛") && wcscmp(board[*a + 1][*b + 1], L"⬜")) {
+				wprintf(L"That peice looks sorta Trapped. Try picking another one\n");
+				free = 0;
+			}
+		}
+		if ((*a <= 0 || *b <= 0 || *a >= 7 || *b >= 7 || wcscmp(board[*a][*b], correct_peice)) && free) {
+			wprintf(L"Sorry! Thats not a vaild choice, try again\n");
+			
+		}
+		else { break; }
+
+	} while (!(*a >= 0 && *b >= 0 && *a <= 7 && *b <= 7 && !wcscmp(board[*a][*b], correct_peice) && free));
+
 	board[*a][*b] = board_blank[*a][*b];
 }
 
@@ -218,7 +250,7 @@ void move_player1_piece(int* row, int* column, int original_row, int original_co
 
 		if ((*row == (original_row - 1) && *column == (original_column - 1)) || (*row == (original_row - 1) && *column == (original_column + 1)))
 		{
-			break;
+				break;
 		}
 		else
 		{
@@ -333,7 +365,6 @@ int main_menu(void)
 
 void player1_kinged(const wchar_t* board[8][9], int row, int column)
 {
-	wprintf(L"This is row %d", row);
 	if (wcscmp(board[row][column], L"⚪") == 0 && row == 0)
 	{
 		int kinged_piece = 0, orginal_piece = 0;

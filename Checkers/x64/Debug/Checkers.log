@@ -1,29 +1,29 @@
 ﻿  functions.c
-C:\Users\thomp\source\repos\Checkers\functions.c(81,13): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
-C:\Users\thomp\source\repos\Checkers\functions.c(81,13): warning C4024: 'kill': different types for formal and actual parameter 3
-C:\Users\thomp\source\repos\Checkers\functions.c(83,25): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
-C:\Users\thomp\source\repos\Checkers\functions.c(83,25): warning C4024: 'activate_ability': different types for formal and actual parameter 3
-C:\Users\thomp\source\repos\Checkers\functions.c(101,13): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
-C:\Users\thomp\source\repos\Checkers\functions.c(101,13): warning C4024: 'kill': different types for formal and actual parameter 3
-C:\Users\thomp\source\repos\Checkers\functions.c(103,25): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
-C:\Users\thomp\source\repos\Checkers\functions.c(103,25): warning C4024: 'activate_ability': different types for formal and actual parameter 3
-C:\Users\thomp\source\repos\Checkers\functions.c(412,17): warning C4047: '==': 'int' differs in levels of indirection from 'char [2]'
-C:\Users\thomp\source\repos\Checkers\functions.c(414,11): warning C4477: 'wscanf' : format string '%ls' requires an argument of type 'unsigned short *', but variadic argument 1 has type 'int *'
-C:\Users\thomp\source\repos\Checkers\functions.c(414,11): warning C4477: 'wscanf' : format string '%ls' requires an argument of type 'unsigned short *', but variadic argument 2 has type 'int *'
-C:\Users\thomp\source\repos\Checkers\functions.c(419,12): warning C4477: 'wscanf' : format string '%ls' requires an argument of type 'unsigned short *', but variadic argument 1 has type 'int *'
-C:\Users\thomp\source\repos\Checkers\functions.c(419,12): warning C4477: 'wscanf' : format string '%ls' requires an argument of type 'unsigned short *', but variadic argument 2 has type 'int *'
-C:\Users\thomp\source\repos\Checkers\functions.c(424,12): warning C4477: 'wscanf' : format string '%lf' requires an argument of type 'double *', but variadic argument 1 has type 'int *'
-C:\Users\thomp\source\repos\Checkers\functions.c(424,12): warning C4477: 'wscanf' : format string '%lf' requires an argument of type 'double *', but variadic argument 2 has type 'int *'
-C:\Users\thomp\source\repos\Checkers\functions.c(427,16): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
-C:\Users\thomp\source\repos\Checkers\functions.c(430,17): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
-C:\Users\thomp\source\repos\Checkers\functions.c(437,22): warning C4047: '==': 'int' differs in levels of indirection from 'char [2]'
-C:\Users\thomp\source\repos\Checkers\functions.c(451,22): warning C4047: '==': 'int' differs in levels of indirection from 'char [2]'
-C:\Users\thomp\source\repos\Checkers\functions.c(468,22): warning C4047: '==': 'int' differs in levels of indirection from 'char [2]'
-C:\Users\thomp\source\repos\Checkers\functions.c(470,15): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
-C:\Users\thomp\source\repos\Checkers\functions.c(473,17): warning C4047: '=': 'int *' differs in levels of indirection from 'int'
-C:\Users\thomp\source\repos\Checkers\functions.c(490,17): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
-C:\Users\thomp\source\repos\Checkers\functions.c(525,14): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
-C:\Users\thomp\source\repos\Checkers\functions.c(540,14): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
-C:\Users\thomp\source\repos\Checkers\functions.c(557,14): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
-C:\Users\thomp\source\repos\Checkers\functions.c(587,15): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
-  Checkers.vcxproj -> C:\Users\thomp\source\repos\Checkers\x64\Debug\Checkers.exe
+C:\Users\linds\Downloads\Checkers\functions.c(113,13): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+C:\Users\linds\Downloads\Checkers\functions.c(113,13): warning C4024: 'kill': different types for formal and actual parameter 3
+C:\Users\linds\Downloads\Checkers\functions.c(115,25): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+C:\Users\linds\Downloads\Checkers\functions.c(115,25): warning C4024: 'activate_ability': different types for formal and actual parameter 3
+C:\Users\linds\Downloads\Checkers\functions.c(133,13): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+C:\Users\linds\Downloads\Checkers\functions.c(133,13): warning C4024: 'kill': different types for formal and actual parameter 3
+C:\Users\linds\Downloads\Checkers\functions.c(135,25): warning C4047: 'function': 'int *' differs in levels of indirection from 'int'
+C:\Users\linds\Downloads\Checkers\functions.c(135,25): warning C4024: 'activate_ability': different types for formal and actual parameter 3
+C:\Users\linds\Downloads\Checkers\functions.c(443,17): warning C4047: '==': 'int' differs in levels of indirection from 'char [2]'
+C:\Users\linds\Downloads\Checkers\functions.c(445,11): warning C4477: 'wscanf' : format string '%ls' requires an argument of type 'unsigned short *', but variadic argument 1 has type 'int *'
+C:\Users\linds\Downloads\Checkers\functions.c(445,11): warning C4477: 'wscanf' : format string '%ls' requires an argument of type 'unsigned short *', but variadic argument 2 has type 'int *'
+C:\Users\linds\Downloads\Checkers\functions.c(450,12): warning C4477: 'wscanf' : format string '%ls' requires an argument of type 'unsigned short *', but variadic argument 1 has type 'int *'
+C:\Users\linds\Downloads\Checkers\functions.c(450,12): warning C4477: 'wscanf' : format string '%ls' requires an argument of type 'unsigned short *', but variadic argument 2 has type 'int *'
+C:\Users\linds\Downloads\Checkers\functions.c(455,12): warning C4477: 'wscanf' : format string '%lf' requires an argument of type 'double *', but variadic argument 1 has type 'int *'
+C:\Users\linds\Downloads\Checkers\functions.c(455,12): warning C4477: 'wscanf' : format string '%lf' requires an argument of type 'double *', but variadic argument 2 has type 'int *'
+C:\Users\linds\Downloads\Checkers\functions.c(458,16): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
+C:\Users\linds\Downloads\Checkers\functions.c(461,17): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
+C:\Users\linds\Downloads\Checkers\functions.c(468,22): warning C4047: '==': 'int' differs in levels of indirection from 'char [2]'
+C:\Users\linds\Downloads\Checkers\functions.c(482,22): warning C4047: '==': 'int' differs in levels of indirection from 'char [2]'
+C:\Users\linds\Downloads\Checkers\functions.c(499,22): warning C4047: '==': 'int' differs in levels of indirection from 'char [2]'
+C:\Users\linds\Downloads\Checkers\functions.c(501,15): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
+C:\Users\linds\Downloads\Checkers\functions.c(504,17): warning C4047: '=': 'int *' differs in levels of indirection from 'int'
+C:\Users\linds\Downloads\Checkers\functions.c(521,17): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
+C:\Users\linds\Downloads\Checkers\functions.c(556,14): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
+C:\Users\linds\Downloads\Checkers\functions.c(571,14): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
+C:\Users\linds\Downloads\Checkers\functions.c(588,14): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
+C:\Users\linds\Downloads\Checkers\functions.c(618,15): warning C4047: '==': 'int *' differs in levels of indirection from 'int'
+  Checkers.vcxproj -> C:\Users\linds\Downloads\Checkers\x64\Debug\Checkers.exe

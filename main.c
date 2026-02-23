@@ -51,7 +51,6 @@ int main(void) {
 	int running = 1;
 	do {
 		running = do_a_round(&a, &b, &c, &d, board, board_blank);
-		wprintf(L"%d", running);
 	} while (running);
 	
 

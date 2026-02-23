@@ -17,6 +17,7 @@
 //const wchar_t* name_1 = L"jessica"; data type example for strings of unicode
 //wprintf(L"%ls") print for unicode characters
 //Wscanf(L"") scan for unicode characters
+//wcscmp(board[*a][*b], correct_peice)   returns 0 if their are matching characters
 
 
 void print_board(const wchar_t* board[8][9]);
