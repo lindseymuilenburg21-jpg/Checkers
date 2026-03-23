@@ -93,7 +93,6 @@ void get_peice_cords(int*a, int*b, int player_num, const wchar_t* board[8][9], c
 
 	} while (!(*a >= 0 && *b >= 0 && *a <= 7 && *b <= 7 && !wcscmp(board[*a][*b], correct_peice) && free));
 
-	board[*a][*b] = board_blank[*a][*b];
 }
 
 /*
@@ -102,6 +101,8 @@ Function: Does one round of player 1 and player 2 movment
 */
 
 int do_a_round(int *a, int *b, int*c, int*d, const wchar_t* board[8][9], const wchar_t* board_blank[8][9]) {
+	int kill = 0;
+
 	int player_num = 1;
 
 	if (check_for_loss(player_num, board) == 0) {
@@ -110,11 +111,14 @@ int do_a_round(int *a, int *b, int*c, int*d, const wchar_t* board[8][9], const w
 
 	get_peice_cords(a, b, player_num, board, board_blank);
 	
-	kill(a, b, player_num, board, board_blank, board[*a][*b]);
+	//kill(a, b, player_num, board, board_blank, board[*a][*b]);
+	kill = alternate_kill(board, board_blank, *a, *b);
 
 	activate_ability(a, b, player_num, board, board_blank, board[*a][*b]);
 
-	move_player1_piece(c, d, *a, *b, board);
+	if (!(kill==1)) {
+		move_player1_piece(c, d, *a, *b, board, board_blank);
+	}
 
 	int row1 = *c, coll1 = *d;
 
@@ -130,11 +134,14 @@ int do_a_round(int *a, int *b, int*c, int*d, const wchar_t* board[8][9], const w
 
 	get_peice_cords(a, b, player_num, board, board_blank);
 
-	kill(a, b, player_num, board, board_blank, board[*a][*b]);
+	//kill(a, b, player_num, board, board_blank, board[*a][*b]);
+	kill = alternate_kill(board, board_blank, *a, *b);
 
 	activate_ability(a, b, player_num, board, board_blank, board[*a][*b]);
 		
-	move_player2_piece(c, d, *a, *b, board);
+	if (!(kill==1)) {
+		move_player2_piece(c, d, *a, *b, board, board_blank);
+	}
 
 	player2_kinged(board, *c, *d);
 
@@ -233,7 +240,7 @@ int get_bender_abilities(void)
 // Author : Patrick
 // Function : Moves a normal white piece (Player 1)
 
-void move_player1_piece(int* row, int* column, int original_row, int original_column, const wchar_t* board[8][9])
+void move_player1_piece(int* row, int* column, int original_row, int original_column, const wchar_t* board[8][9], const wchar_t* blank[8][9])
 {
 	_setmode(_fileno(stdout), _O_U16TEXT);
 	_setmode(_fileno(stdin), _O_U16TEXT);
@@ -259,12 +266,13 @@ void move_player1_piece(int* row, int* column, int original_row, int original_co
 	} while (!((*row == (original_row - 1) && *column == (original_column - 1)) || (*row == (original_row - 1) && *column == (original_column + 1))));
 
 	board[*row][*column] = L"⚪";
+	board[original_row][original_column] = blank[original_row][original_column];
 }
 
 // Author : Patrick
 // Function : Moves a normal black piece (Player 2)
 
-void move_player2_piece(int* row, int* column, int original_row, int original_column, const wchar_t* board[8][9])
+void move_player2_piece(int* row, int* column, int original_row, int original_column, const wchar_t* board[8][9], const wchar_t* blank[8][9])
 {
 	_setmode(_fileno(stdout), _O_U16TEXT);
 	_setmode(_fileno(stdin), _O_U16TEXT);
@@ -288,7 +296,9 @@ void move_player2_piece(int* row, int* column, int original_row, int original_co
 			wprintf(L"Not a valid move for this piece! Try again!\n");
 		}
 	} while (!((*row == (original_row + 1) && *column == (original_column - 1)) || (*row == (original_row + 1) && *column == (original_column + 1))));
+	
 	board[*row][*column] = L"⚫";
+	board[original_row][original_column] = blank[original_row][original_column];
 }
 
 // Name : P & A
@@ -547,11 +557,11 @@ Purpose: kill the other player
 
 void kill(int* row, int* column, int* player, const wchar_t* board[8][9], const wchar_t* blank[8][9], const wchar_t* emoji)
 {
-	int awnser = 0;
+	int answer = 0;
 	wprintf(L"Do you want to kill someone this round? \n put 1 for yes, 2 for no");
-	wscanf(L"%d", &awnser);
+	wscanf(L"%d", &answer);
 
-	if (awnser == 1) {
+	if (answer == 1) {
 		if (player == 1) {
 			if (board[*row - 2][*column - 2] && board[*row - 1][*column - 1] == L"⚪") {
 				board[*row - 1][*column - 1] = blank[*row - 1][*column - 1];
@@ -644,4 +654,72 @@ void kill(int* row, int* column, int* player, const wchar_t* board[8][9], const 
 			}
 		}
 	}
+}
+
+int get_kill_info(const wchar_t* board[8][9], const wchar_t* blank[8][9], int* victim_row, int* victim_collumn, int killer_row, int killer_collumn, int* new_row, int *new_collumn) {
+	wchar_t answer = '\0';
+	int valid_answer = 0;
+	
+	while (valid_answer == 0) {
+		wprintf(L"Would you like to try and kill a peice this round? (Enter y or n)\n");
+		wscanf(L" %lc", &answer);
+		if (answer == 'y') {
+			valid_answer = 1;
+
+			wprintf(L"Which peice would you like to kill?\nEnter row (space) collumn:\n");
+			wscanf(L" %d %d", victim_row, victim_collumn);
+
+			*new_row = killer_row + 2 * (*victim_row - killer_row);
+			*new_collumn = killer_collumn + 2 * (*victim_collumn - killer_collumn);
+
+			if (!wcscmp(board[*victim_row][*victim_collumn], blank[*victim_row][*victim_collumn])) {
+				wprintf(L"Sorry man there's nothing there\n");
+				valid_answer = 0;
+			}
+			else if (abs(*new_row - killer_row) > 2 || abs(*new_collumn - killer_collumn) > 2) {
+				wprintf(L"Sorry man that's too far away\n");
+				valid_answer = 0;
+			}
+			else if (wcscmp(board[*new_row][*new_collumn],blank[*new_row][*new_collumn])) {
+				wprintf(L"Sorry man there's no room behind that one\n");
+				valid_answer = 0;
+			}
+			else if (!wcscmp(board[killer_row][killer_collumn], L"⚫") && *new_row < killer_row) {
+				wprintf(L"Sorry man, as a black peice you can only move down until you're kinged\n");
+				valid_answer = 0;
+			}
+			else if (!wcscmp(board[killer_row][killer_collumn], L"⚪") && *new_row > killer_row) {
+				wprintf(L"Sorry man, as a white peice you can only move up until you're kinged\n");
+				valid_answer = 0;
+			}
+			else {
+				wprintf(L"Got it, good choice\n");
+			}
+		}
+		else if (answer == 'n') {
+			wprintf(L"Alright, win for pacifism\n");
+			valid_answer = -1;
+			return valid_answer;
+		}
+		else {
+			wprintf(L"Sorry, didn't catch that\n");
+		}
+	}
+	return valid_answer;
+}
+
+int alternate_kill(wchar_t* board[8][9], const wchar_t* blank[8][9], int killer_row, int killer_collumn) {
+	int answer = 0;
+	int victim_row, victim_collumn, new_row, new_collumn;
+
+	int kill = get_kill_info(board, blank, &victim_row, &victim_collumn, killer_row, killer_collumn, &new_row, &new_collumn);
+
+	if (kill == 1) {
+		board[victim_row][victim_collumn] = blank[victim_row][victim_collumn];
+		board[new_row][new_collumn] = board[killer_row][killer_collumn];
+		board[killer_row][killer_collumn] = blank[killer_row][killer_collumn];
+
+		wprintf(L"DEBUG: New spot [%d][%d] now contains: %ls\n", new_row, new_collumn, board[new_row][new_collumn]);
+	}
+	return kill;
 }
